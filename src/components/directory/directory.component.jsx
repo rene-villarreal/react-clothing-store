@@ -7,7 +7,7 @@ import { selectDirectorySections }  from '../../redux/directory/directory.select
 import MenuItem from '../menu-item/menu-item.component';
 
 import './directory.styles.scss';
-import FormInput from '../form-input/form-input.component';
+//import FormInput from '../form-input/form-input.component';
 
 const Directory = ({ sections }) => (
    
