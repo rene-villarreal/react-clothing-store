@@ -15,7 +15,6 @@ import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';  //addCollectionAndDocuments
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
-//import { selectCollectionsForPreview} from './redux/shop/shop.selectors';
 
 class App extends React.Component {
   
@@ -23,25 +22,21 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    //const {setCurrentUser, collectionsArray} = this.props;  //used collections array to move the shop data to firebase
     const {setCurrentUser} = this.props;
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-       if (userAuth) {
-         const userRef = await createUserProfileDocument(userAuth);
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //    if (userAuth) {
+    //      const userRef = await createUserProfileDocument(userAuth);
          
-         userRef.onSnapshot(snapShot => {
-           setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
-            });
-          });
-        }
-       //else {
-         setCurrentUser(userAuth);
-       //  addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({ title, items }))); //used it to move the shop data to firebase
-       // }
-    });
+    //      userRef.onSnapshot(snapShot => {
+    //        setCurrentUser({
+    //           id: snapShot.id,
+    //           ...snapShot.data()
+    //         });
+    //       });
+    //     }
+    //      setCurrentUser(userAuth);
+    //});
 
   }
 
